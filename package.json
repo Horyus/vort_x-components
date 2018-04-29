@@ -1,0 +1,45 @@
+{
+  "name": "vortex-components",
+  "version": "1.0.0",
+  "description": "[FlexProject][VortΞx Components] is a collection of React Components that helps developers build Ethereum Dapps.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tslint --project . && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/FlexProject/vortex-components.git"
+  },
+  "keywords": [
+    "vortex",
+    "dapp",
+    "redux",
+    "react",
+    "ethereum",
+    "transaction",
+    "smart",
+    "contract",
+    "component",
+    "reducer",
+    "action",
+    "saga"
+  ],
+  "author": "Iulian Rotaru (mortimr)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/FlexProject/vortex-components/issues"
+  },
+  "homepage": "https://gitlab.com/FlexProject/vortex-components#README",
+  "dependencies": {
+    "@types/react": "^16.3.13",
+    "@types/react-redux": "^5.0.19",
+    "react": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "typescript": "^2.8.3",
+    "vort_x": "git+ssh://git@gitlab.com/FlexProject/vortex.git#master"
+  },
+  "devDependencies": {
+    "linted": "0.0.2",
+    "tslint": "^5.9.1"
+  }
+}

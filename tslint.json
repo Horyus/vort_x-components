@@ -1,0 +1,9 @@
+{
+  "extends": ["linted"],
+  "linter": {
+    "exclude": [
+      "config/**/*.js",
+      "**/node_modules/**"
+    ]
+  }
+}
