@@ -1,3 +1,5 @@
-## EtherGate Demo Application
+<div align="center" >
+<img width="25%" src="https://gitlab.com/FlexProject/vortex-components/raw/master/.assets/vortex-components.png">
+</div>
 
-This is the demo application of the EtherGate React Components suite.
+React Components using the Vortex toolset.
