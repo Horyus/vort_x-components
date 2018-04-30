@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { connect } from '../../../utils/connect';
 class GatelockContainer extends React.Component {
     render() {
         if (this.props.web3) {
@@ -24,4 +24,4 @@ const mapStateToProps = (state) => {
         web3: state.web3
     };
 };
-export const Gatelock = connect(mapStateToProps)(GatelockContainer);
+export const Gatelock = connect(GatelockContainer, mapStateToProps);
