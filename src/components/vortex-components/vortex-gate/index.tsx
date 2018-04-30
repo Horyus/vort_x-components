@@ -2,25 +2,25 @@ import * as React from 'react';
 import {Vortex, State} from 'vort_x';
 import {Gatelock} from "./gatelock";
 
-export interface VortexGateProps {
+export interface VortexGateProps<T extends State> {
     loader: Promise<any>,
-    contracts: any[]
+    contracts: any[],
+    network_contracts?: any[]
 }
 
-export interface VortexGateState<T extends State> {
-    vortex: Vortex<T>
-}
-
-export class VortexGate<T extends State = State> extends React.Component<VortexGateProps, VortexGateState<T>> {
+export class VortexGate<T extends State = State> extends React.Component<VortexGateProps<T>> {
 
     vortex: Vortex<T>;
 
-    constructor(props: VortexGateProps) {
+    constructor(props: VortexGateProps<T>) {
         super(props);
 
         this.vortex = Vortex.factory<T>(this.props.contracts, this.props.loader);
-        // TODO take separate argument for this one => Maybe array of contracts ?
-        this.vortex.networksOf(this.props.contracts[0]);
+        if (this.props.network_contracts) {
+            this.props.network_contracts.forEach((contract: any): void => {
+                this.vortex.networksOf(contract);
+            });
+        }
         this.vortex.run();
         this.vortex.loadWeb3();
     }
@@ -34,3 +34,5 @@ export class VortexGate<T extends State = State> extends React.Component<VortexG
     }
 
 }
+
+export * from './organizers';
