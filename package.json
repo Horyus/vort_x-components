@@ -2,9 +2,11 @@
   "name": "vort_x-components",
   "version": "1.0.0",
   "description": "[FlexProject][VortΞx Components] is a collection of React Components that helps developers build Ethereum Dapps.",
-  "main": "index.js",
+  "main": "./build/index.js",
   "scripts": {
-    "build": "tslint --project . && tsc"
+    "build": "tslint --project . && tsc",
+    "babel": "babel src -d build",
+    "prepublish": "npm run build && npm run babel"
   },
   "repository": {
     "type": "git",
@@ -33,13 +35,25 @@
   "dependencies": {
     "@types/react": "^16.3.13",
     "@types/react-redux": "^5.0.19",
-    "react": "^16.3.2",
+    "prop-types": "^15.6.1",
     "react-redux": "^5.0.7",
     "typescript": "^2.8.3",
     "vort_x": "git+ssh://git@gitlab.com/FlexProject/vortex.git#master"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-watch": "^3.1.4",
     "linted": "0.0.2",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "tslint": "^5.9.1"
   }
 }

@@ -1,13 +1,14 @@
 import * as React from 'react';
-import {connect} from 'react-redux';
+import {connect} from '../../../utils/connect';
 
 interface GatelockContainerProps {
+    store?: any,
     web3: any
 }
 
-class GatelockContainer extends React.Component<GatelockContainerProps> {
+class GatelockContainer extends React.Component<GatelockContainerProps, any> {
 
-    render(): React.ReactNode {
+    public render(): React.ReactNode {
         if (this.props.web3) {
             if (this.props.web3.status !== 'LOADED') {
                 return (<div>
@@ -32,4 +33,4 @@ const mapStateToProps = (state: any): GatelockContainerProps => {
     }
 };
 
-export const Gatelock = connect(mapStateToProps)(GatelockContainer);
+export const Gatelock = connect(GatelockContainer, mapStateToProps);
