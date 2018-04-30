@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tslint --project . && tsc",
     "babel": "babel src -d build",
-    "prepublish": "npm run babel"
+    "prepublish": "npm run build && npm run babel"
   },
   "repository": {
     "type": "git",

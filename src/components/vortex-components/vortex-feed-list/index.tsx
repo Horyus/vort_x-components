@@ -1,7 +1,6 @@
 import * as React from "react";
 import {State, FeedState, FeedFilter, FeedType} from 'vort_x';
 import {connect} from '../../../utils/connect';
-import {IRREGULAR_WHITESPACE_REGEX} from "tslint/lib/rules/noIrregularWhitespaceRule";
 
 export interface VortexFeedListProps {
     container?: React.Component,
