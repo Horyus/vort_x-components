@@ -33,6 +33,7 @@
   },
   "homepage": "https://gitlab.com/FlexProject/vortex-components#README",
   "dependencies": {
+    "@types/node": "^9.6.7",
     "@types/react": "^16.3.13",
     "@types/react-redux": "^5.0.19",
     "prop-types": "^15.6.1",
