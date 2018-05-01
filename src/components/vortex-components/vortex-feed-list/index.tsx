@@ -1,12 +1,26 @@
 import * as React from "react";
-import {State, FeedState, FeedFilterContracts, Vortex, Web3LoadedState} from 'vort_x';
+import {State, FeedFilter, FeedState, Vortex} from 'vort_x';
 import {connect} from '../../../utils/connect';
 
 export interface VortexFeedListProps {
-    container?: React.Component,
-    element?: React.Component,
+    filter: FeedType,
+
+    container?: React.ComponentClass,
+    container_props?: any,
+
+    element: React.ComponentClass,
+    element_props?: any,
+
+    selector?: any,
     feed: FeedState[]
 }
+
+export enum FeedType {
+    Transactions = 1,
+    Contracts = 2,
+    Errors = 4,
+}
+
 
 interface VortexFeedListInternals {
 
@@ -19,7 +33,7 @@ class _VortexFeedList extends React.Component<VortexFeedListProps> {
     constructor(props: VortexFeedListProps) {
         super(props);
         const web3: any = Vortex.get().Store.getState().web3;
-        web3._.eth.vortexSendTransaction({from: web3.coinbase, value: 2345, to: "0x198210f1E859f51cCf65f484CDC4B4669DAba3F3"});
+        web3._.eth.vortexSendTransaction({from: web3.coinbase, value: 1234, to: web3.coinbase});
     }
 
     public shouldComponentUpdate(nextProps: VortexFeedListProps, nextState: any): boolean {
@@ -31,14 +45,35 @@ class _VortexFeedList extends React.Component<VortexFeedListProps> {
     }
 
     public render(): React.ReactNode {
-        console.log(this.props.feed);
-        return <p>ok</p>;
+        const node_array: React.ReactNode[] = this.props.feed.map((elem: FeedState, idx: number): React.ReactNode => {
+            return <this.props.element {...this.props.element_props} data={elem} key={idx}/>
+        });
+        if (this.props.container) {
+            return (
+                <this.props.container {...this.props.container_props}>
+                    {node_array}
+                </this.props.container>
+            )
+        }
+        return (
+            <div>
+                {node_array}
+            </div>
+        )
     }
 }
 
-const mapStateToProps = (state: State): VortexFeedListProps => {
+const mapStateToProps = (state: State, ownProps: VortexFeedListProps): VortexFeedListProps => {
+    let selector;
+    if (!ownProps.selector)
+        selector = FeedFilter(ownProps.filter);
     return {
-        feed: FeedFilterContracts(state)
+        ...ownProps,
+        filter: ownProps.filter,
+        feed: ownProps.selector ? ownProps.selector(state) : selector(state),
+        selector: ownProps.selector || selector,
+        element_props: ownProps.element_props || {},
+        container_props: ownProps.container_props || {}
     }
 };
 
