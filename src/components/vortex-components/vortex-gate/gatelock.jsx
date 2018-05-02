@@ -5,25 +5,26 @@ class GatelockContainer extends React.Component {
         super(props);
         this.paths = {};
         const children = this.props.children;
-        if (!children || children.length != 3) {
-            console.error("Gatelock: You need to provide VortexWeb3Loaded, VortexWeb3LoadError and VortexWeb3NetworkError as unique children of VortexGate");
+        if (!children || children.length != 4) {
+            console.error("Gatelock: You need to provide VortexWeb3Loading, VortexWeb3Loaded, VortexWeb3LoadError and VortexWeb3NetworkError as unique children of VortexGate");
             return;
         }
         const found = {};
         const values = [
             "VortexWeb3Loaded",
             "VortexWeb3LoadError",
-            "VortexWeb3NetworkError"
+            "VortexWeb3NetworkError",
+            "VortexWeb3Loading"
         ];
         children.forEach((child) => {
             if (values.indexOf(child.type.name) === -1) {
-                console.error("Gatelock: You need to provide VortexWeb3Loaded, VortexWeb3LoadError and VortexWeb3NetworkError as unique children of VortexGate");
-                console.error("Found " + child.type.name + " but was waiting for VortexWeb3Loaded, VortexWeb3LoadError and VortexWeb3NetworkError");
+                console.error("Gatelock: You need to provide VortexWeb3Loading, VortexWeb3Loaded, VortexWeb3LoadError and VortexWeb3NetworkError as unique children of VortexGate");
+                console.error("Found " + child.type.name + " but was waiting for VortexWeb3Loading, VortexWeb3Loaded, VortexWeb3LoadError and VortexWeb3NetworkError");
                 return;
             }
             if (found[child.type.name]) {
-                console.error("Gatelock: You need to provide VortexWeb3Loaded, VortexWeb3LoadError and VortexWeb3NetworkError as unique children of VortexGate");
-                console.error("Found duplicate " + child.type.name + " but was waiting for 1 VortexWeb3Loaded, 1 VortexWeb3LoadError or 1 VortexWeb3NetworkError");
+                console.error("Gatelock: You need to provide VortexWeb3Loading, VortexWeb3Loaded, VortexWeb3LoadError and VortexWeb3NetworkError as unique children of VortexGate");
+                console.error("Found duplicate " + child.type.name + " but was waiting for 1 VortexWeb3Loading, 1 VortexWeb3Loaded, 1 VortexWeb3LoadError or 1 VortexWeb3NetworkError");
             }
             found[child.type.name] = true;
             this.paths[child.type.name] = child;
@@ -32,6 +33,8 @@ class GatelockContainer extends React.Component {
     render() {
         if (this.props.web3) {
             switch (this.props.web3.status) {
+                case 'LOADING':
+                    return this.paths.VortexWeb3Loading;
                 case 'LOADED':
                     return this.paths.VortexWeb3Loaded;
                 case 'LOAD_ERROR':

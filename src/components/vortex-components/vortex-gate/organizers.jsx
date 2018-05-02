@@ -14,3 +14,8 @@ export class VortexWeb3NetworkError extends React.Component {
         return this.props.children;
     }
 }
+export class VortexWeb3Loading extends React.Component {
+    render() {
+        return this.props.children;
+    }
+}
