@@ -33,7 +33,6 @@ class _VortexFeedList extends React.Component<VortexFeedListProps> {
     constructor(props: VortexFeedListProps) {
         super(props);
         const web3: any = Vortex.get().Store.getState().web3;
-        web3._.eth.vortexSendTransaction({from: web3.coinbase, value: 1234, to: web3.coinbase});
     }
 
     public shouldComponentUpdate(nextProps: VortexFeedListProps, nextState: any): boolean {

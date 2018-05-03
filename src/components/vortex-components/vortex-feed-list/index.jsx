@@ -12,7 +12,6 @@ class _VortexFeedList extends React.Component {
         super(props);
         this.feedsize = 0;
         const web3 = Vortex.get().Store.getState().web3;
-        web3._.eth.vortexSendTransaction({ from: web3.coinbase, value: 1234, to: web3.coinbase });
     }
     shouldComponentUpdate(nextProps, nextState) {
         if (nextProps.feed.length != this.feedsize) {
