@@ -30,12 +30,7 @@ class _VortexFeedList extends React.Component<VortexFeedListProps> {
 
     private feedsize: number = 0;
 
-    constructor(props: VortexFeedListProps) {
-        super(props);
-        const web3: any = Vortex.get().Store.getState().web3;
-    }
-
-    public shouldComponentUpdate(nextProps: VortexFeedListProps, nextState: any): boolean {
+    public shouldComponentUpdate(nextProps: VortexFeedListProps): boolean {
         if (nextProps.feed.length != this.feedsize) {
             this.feedsize = nextProps.feed.length;
             return true;

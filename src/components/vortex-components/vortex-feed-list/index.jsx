@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FeedFilter, Vortex } from 'vort_x';
+import { FeedFilter } from 'vort_x';
 import { connect } from '../../../utils/connect';
 export var FeedType;
 (function (FeedType) {
@@ -8,12 +8,11 @@ export var FeedType;
     FeedType[FeedType["Errors"] = 4] = "Errors";
 })(FeedType || (FeedType = {}));
 class _VortexFeedList extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super(...arguments);
         this.feedsize = 0;
-        const web3 = Vortex.get().Store.getState().web3;
     }
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate(nextProps) {
         if (nextProps.feed.length != this.feedsize) {
             this.feedsize = nextProps.feed.length;
             return true;
