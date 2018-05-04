@@ -13,10 +13,6 @@ export interface VortexTransactionsListProps {
     feed: FeedState[],
 }
 
-interface VortexFeedListInternals {
-
-}
-
 class _VortexTransactionsList extends React.Component<VortexTransactionsListProps> {
 
     render_array: React.ReactNode[];
