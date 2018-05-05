@@ -38,6 +38,7 @@
     "@types/react-redux": "^5.0.19",
     "prop-types": "^15.6.1",
     "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "typescript": "^2.8.3",
     "vort_x": "git+ssh://git@gitlab.com/FlexProject/vortex.git#master"
   },
