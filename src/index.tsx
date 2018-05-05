@@ -1,4 +1,5 @@
 export * from './components/vortex-components/vortex-transactions-list';
+export * from './components/vortex-components/vortex-method-call-list';
 export * from './components/vortex-components/vortex-contracts-list';
 export * from './components/vortex-components/vortex-gate';
 export * from './components/vortex-components/vortex-feed-list';
