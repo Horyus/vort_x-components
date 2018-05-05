@@ -4,7 +4,7 @@ import { Gatelock } from "./gatelock";
 export class VortexGate extends React.Component {
     constructor(props) {
         super(props);
-        this.vortex = Vortex.factory(this.props.contracts, this.props.loader);
+        this.vortex = Vortex.factory(this.props.contracts, this.props.loader, this.props.reducers_map, this.props.custom_state);
         if (this.props.network_contracts) {
             this.props.network_contracts.forEach((contract) => {
                 this.vortex.networksOf(contract);
@@ -19,4 +19,4 @@ export class VortexGate extends React.Component {
             </Gatelock>);
     }
 }
-export * from './organizers';
+export { VortexWeb3Loaded, VortexWeb3Loading, VortexWeb3LoadError, VortexWeb3NetworkError } from './organizers';

@@ -1,6 +1,6 @@
 import * as React from "react";
-import {State, FeedFilter, FeedState, Vortex} from 'vort_x';
-import {FeedFilterTransactions, FeedNewTransactionState, TransactionState} from "vort_x";
+import {State, FeedState} from 'vort_x';
+import {FeedFilterTransactions, FeedNewTransactionState} from "vort_x";
 import {connect} from "../../../utils/connect";
 
 export interface VortexTransactionsListProps {
