@@ -6,6 +6,7 @@ export var FeedType;
     FeedType[FeedType["Transactions"] = 1] = "Transactions";
     FeedType[FeedType["Contracts"] = 2] = "Contracts";
     FeedType[FeedType["Errors"] = 4] = "Errors";
+    FeedType[FeedType["Accounts"] = 8] = "Accounts";
 })(FeedType || (FeedType = {}));
 class _VortexFeedList extends React.Component {
     constructor() {

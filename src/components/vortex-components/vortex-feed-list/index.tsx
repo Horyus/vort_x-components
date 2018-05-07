@@ -19,6 +19,7 @@ export enum FeedType {
     Transactions = 1,
     Contracts = 2,
     Errors = 4,
+    Accounts = 8
 }
 
 

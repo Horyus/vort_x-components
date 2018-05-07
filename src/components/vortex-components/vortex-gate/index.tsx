@@ -18,7 +18,9 @@ export class VortexGate<T extends State = State> extends React.Component<VortexG
     constructor(props: VortexGateProps<T>) {
         super(props);
 
-        this.vortex = Vortex.factory<T>(this.props.contracts, this.props.loader, this.props.reducers_map, this.props.custom_state);
+        this.vortex = Vortex.factory<T>(this.props.contracts, this.props.loader, {
+            reducer: this.props.reducers_map,
+            custom_state: this.props.custom_state});
         if (this.props.network_contracts) {
             this.props.network_contracts.forEach((contract: any): void => {
                 this.vortex.networksOf(contract);
