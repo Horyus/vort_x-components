@@ -1,6 +1,6 @@
 {
   "name": "vort_x-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "[VortΞx Components] is a collection of React Components using Vortex that helps developers build Ethereum Dapps.",
   "main": "./build/index.js",
   "scripts": {
