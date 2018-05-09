@@ -22,11 +22,6 @@ export enum FeedType {
     Accounts = 8
 }
 
-
-interface VortexFeedListInternals {
-
-}
-
 class _VortexFeedList extends React.Component<VortexFeedListProps> {
 
     private feedsize: number = 0;

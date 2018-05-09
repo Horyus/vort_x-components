@@ -1,13 +1,12 @@
 import * as React from "react";
-import {AccountState, State} from "vort_x";
+import {State} from "vort_x";
 import {connect} from "../../../utils/connect";
 
 export interface VortexAccountProps {
     element: React.ComponentClass,
     element_props?: any,
 
-    account_address: string,
-    account: AccountState
+    account_address: string
 }
 
 export class VortexAccount extends React.Component<VortexAccountProps> {
@@ -20,7 +19,7 @@ export class VortexAccount extends React.Component<VortexAccountProps> {
         const customMapStateToProps = (state: State, ownProps: any): any => {
             return {
                 ...ownProps,
-                account: state.accounts[this.props.account_address],
+                account: state.accounts[this.props.account_address.toLowerCase()],
                 address: this.props.account_address
             }
         };
