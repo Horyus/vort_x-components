@@ -1,7 +1,7 @@
 {
   "name": "vort_x-components",
   "version": "1.0.0",
-  "description": "[FlexProject][VortΞx Components] is a collection of React Components that helps developers build Ethereum Dapps.",
+  "description": "[VortΞx Components] is a collection of React Components using Vortex that helps developers build Ethereum Dapps.",
   "main": "./build/index.js",
   "scripts": {
     "build": "tslint --project . && tsc",
