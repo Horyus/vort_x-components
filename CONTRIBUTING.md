@@ -8,13 +8,15 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Pull Request Process
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a
+**1** - Ensure any install or build dependencies are removed before the end of the layer when doing a
    build.
-2. Each Pull Request should have its own issue created and referenced in every commit. All branches
+   
+   
+**2** - Each Pull Request should have its own issue created and referenced in every commit. All branches
    should start from `develop` branch. Naming convention for the issue is `[(THEME)] (TITLE)` and Branch Naming
    should be `(TYPE)/(PROJECT_ID)-(ISSUE_NUMBER)-(THEME_FIRST_LETTER)-(TITLE)`. As an example, if you want to add
    something related with Redux, Issue name can be `[Redux] Add Reducer`, and Branch should be
-   (saying the issue number is 42) `feature/VTX-42-r-add-reducer`.
+   (saying the issue number is 42) `feature/VTXC-42-r-add-reducer`.
 
    **THEME**: 1-2 Words defining the theme of the contribution. You can look at other contributions to use
    similar ones.
@@ -31,21 +33,29 @@ Please note we have a code of conduct, please follow it in all your interactions
    **THEME_FIRST_LETTER**: First letter of defined `THEME`.
 
    **TITLE**: Title in lowercase, space replaced with `-`.
-3. Commit message convention is:
-   ```
+   
+   
+**3** - Commit message convention is:
+
+```
 COMMIT_TITLE
 
 COMMIT_BODY
 
 ISSUE_REFERENCE
-   ```
+```
+   
    **COMMIT_TITLE**: 50 characters max, no end punctuation.
 
    **COMMIT_BODY**: optional, 72 characters per line. If no body, should be replaces by `ISSUE_REFERENCE`.
 
    **ISSUE_REFERENCE**: `VTX #42` would be the issue reference of the example above.
-4. Each new component should be used in the [demo](https://gitlab.com/FlexProject/vortex-demo)
-5. Pull Requests will be merged on develop by repository managers depending on incoming releases and versions.
+   
+   
+**4** - Each new component should be used in the [demo](https://gitlab.com/FlexProject/vortex-demo)
+
+
+**5** - Pull Requests will be merged on develop by repository managers depending on incoming releases and versions.
 
 ## Code of Conduct
 
