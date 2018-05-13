@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/FlexProject/vortex-components.git"
+    "url": "git+https://gitlab.com/Horyus/vortex/vortex-components.git"
   },
   "keywords": [
     "vortex",
@@ -30,9 +30,9 @@
   "author": "Iulian Rotaru (mortimr)",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/FlexProject/vortex-components/issues"
+    "url": "https://gitlab.com/Horyus/vortex/vortex-components/issues"
   },
-  "homepage": "https://gitlab.com/FlexProject/vortex-components#README",
+  "homepage": "https://gitlab.com/Horyus/vortex/vortex-components#README",
   "dependencies": {
     "@types/node": "^9.6.7",
     "@types/react": "^16.3.13",
@@ -43,7 +43,7 @@
     "react-dom": "^16.3.2",
     "redux": "^4.0.0",
     "typescript": "^2.8.3",
-    "vort_x": "git+ssh://git@gitlab.com/FlexProject/vortex.git#master",
+    "vort_x": "git+ssh://git@gitlab.com/Horyus/vortex/vortex.git#master",
     "tslint": "^5.9.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",

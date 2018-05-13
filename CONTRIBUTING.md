@@ -1,6 +1,6 @@
 # Contributing
 
-To contribute, head to the [gitlab](https://gitlab.com/FlexProject/vortex-components) version of this repository.
+To contribute, head to the [gitlab](https://gitlab.com/Horyus/vortex/vortex-components) version of this repository.
 When contributing to this repository, please first discuss the change you wish to make via issue,
 email, or any other method with the owners of this repository before making a change.
 
@@ -52,7 +52,7 @@ ISSUE_REFERENCE
    **ISSUE_REFERENCE**: `VTX #42` would be the issue reference of the example above.
    
    
-**4** - Each new component should be used in the [demo](https://gitlab.com/FlexProject/vortex-demo)
+**4** - Each new component should be used in the [demo](https://gitlab.com/Horyus/vortex/vortex-demo)
 
 
 **5** - Pull Requests will be merged on develop by repository managers depending on incoming releases and versions.
