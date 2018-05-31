@@ -6,7 +6,7 @@ import {DeepPartial, ReducersMapObject} from "redux";
 
 export interface VortexGateProps<T extends State> {
     loader: Promise<any>,
-    contracts: any[],
+    contracts: any,
     network_contracts?: any[],
     reducers_map?: ReducersMapObject<T>,
     custom_state?: DeepPartial<T>

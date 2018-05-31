@@ -3,6 +3,7 @@
   "version": "1.0.6",
   "description": "Vortex Components is a collection of React Components using Vortex that helps developers build better Ethereum React Dapps.",
   "main": "./build/index.js",
+  "browser": "./build/index.js",
   "scripts": {
     "build": "tslint --project . && tsc",
     "babel": "babel src -d build",
