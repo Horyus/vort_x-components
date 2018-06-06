@@ -9,7 +9,8 @@ export interface VortexGateProps<T extends State> {
     contracts: any,
     network_contracts?: any[],
     reducers_map?: ReducersMapObject<T>,
-    custom_state?: DeepPartial<T>
+    custom_state?: DeepPartial<T>,
+    custom_sagas?: any[]
 }
 
 export interface VortexGateChildContext {
@@ -26,7 +27,8 @@ export class VortexGate<T extends State = State> extends React.Component<VortexG
         this.vortex = Vortex.factory<T>(this.props.contracts, this.props.loader, {
             reducer: this.props.reducers_map,
             custom_state: this.props.custom_state,
-            account_refresh_rate: 10000});
+            account_refresh_rate: 10000,
+            custom_sagas: this.props.custom_sagas});
         if (this.props.network_contracts) {
             this.props.network_contracts.forEach((contract: any): void => {
                 this.vortex.networksOf(contract);
