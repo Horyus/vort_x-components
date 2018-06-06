@@ -19,11 +19,101 @@ Vortex Components are a suite of React Components using features from Vortex.
 npm install --save vort_x vort_x-components
 ```
 
+## Get started
+
+### For [Embark](https://embark.status.im) Users ...
+
+```js
+import {VortexGate, VortexWeb3Loaded, VortexWeb3Loading, VortexWeb3LoadError, VortexWeb3NetworkError, VortexMetamaskLoader} from 'vort_x-components';
+import Web3 from 'web3'; // 1.0.0+ is preferable :)
+import SimpleStorageContractInstance from 'Embark/contracts/SimpleStorage';
+import * as Chains from '../chains.json';
+
+
+...
+
+
+<VortexGate contracts={{
+                type: 'embark',
+                contracts: {
+                    SimpleStorage: SimpleStorageContractInstance
+                },
+                chains: Chains,
+                preloaded_contracts: [
+                    "SimpleStorage"
+                ]
+            }} loader={VortexMetamaskLoader(Web3)}>
+
+    <VortexWeb3Loaded>
+        // Renders this when everything went well.
+    </VortexWeb3Loaded>
+
+    <VortexWeb3Loading>
+        // Renders this when web3 is still loading.
+    </VortexWeb3Loading>
+
+    <VortexWeb3LoadError>
+        // Renders this when an error occured while loading web3.
+    </VortexWeb3LoadError>
+
+    <VortexWeb3NetworkError>
+        // Renders this if the contracts are not on the current network
+    </VortexWeb3NetworkError>
+
+</VortexGate>
+```
+
+### ... and for [Truffle](https://embark.status.im) Users.
+
+```js
+import {VortexGate, VortexWeb3Loaded, VortexWeb3Loading, VortexWeb3LoadError, VortexWeb3NetworkError, VortexMetamaskLoader} from 'vort_x-components';
+import Web3 from 'web3'; // 1.0.0+ is preferable :)
+import SimpleStorage from '../build/contracts/SimpleStorage.json'
+
+
+...
+
+
+<VortexGate contracts={{
+                type: 'truffle',
+                contracts: [
+                    SimpleStorage
+                ],
+                preloaded_contracts: [
+                    "SimpleStorage"
+                ]
+            }} network_contracts={SimpleStorage} loader={VortexMetamaskLoader(Web3)}>
+            // network_contracts defines the reference networks. If we are on a network where we can't find the
+            // contracts you gave as arguments, it will be treated as a NetworkError.
+
+    <VortexWeb3Loaded>
+        // Renders this when everything went well.
+    </VortexWeb3Loaded>
+
+    <VortexWeb3Loading>
+        // Renders this when web3 is still loading.
+    </VortexWeb3Loading>
+
+    <VortexWeb3LoadError>
+        // Renders this when an error occured while loading web3.
+    </VortexWeb3LoadError>
+
+    <VortexWeb3NetworkError>
+        // Renders this if the contracts are not on the current network
+    </VortexWeb3NetworkError>
+
+</VortexGate>
+```
+
 ----
 
 ### [Documentation](https://vort-x.readthedocs.io/en/master/tutorial#vortex-components)
 
-### [Usages Examples](https://github.com/Horyus/vortex-demo)
+### [Vortex](https://github.com/Horyus/vortex)
+
+### [Embark Demonstration](https://github.com/Horyus/vortex-demo-embark)
+
+### [Truffle Demonstration](https://github.com/Horyus/vortex-demo)
 
 ### [Contribution](./CONTRIBUTING.md)
 

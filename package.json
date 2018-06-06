@@ -1,6 +1,6 @@
 {
   "name": "vort_x-components",
-  "version": "1.0.6",
+  "version": "1.0.8-alpha",
   "description": "Vortex Components is a collection of React Components using Vortex that helps developers build better Ethereum React Dapps.",
   "main": "./build/index.js",
   "browser": "./build/index.js",
@@ -50,8 +50,10 @@
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "tslint": "^5.9.1",
-    "typescript": "^2.8.3",
-    "vort_x": "^1.0.0"
+    "typescript": "^2.8.3"
+  },
+  "peerDependencies": {
+    "vort_x": "1.x"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
