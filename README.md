@@ -24,7 +24,15 @@ npm install --save vort_x vort_x-components
 ### For [Embark](https://embark.status.im) Users ...
 
 ```js
-import {VortexGate, VortexWeb3Loaded, VortexWeb3Loading, VortexWeb3LoadError, VortexWeb3NetworkError, VortexMetamaskLoader} from 'vort_x-components';
+import {
+    VortexGate,
+    VortexWeb3Loaded,
+    VortexWeb3Loading,
+    VortexWeb3LoadError,
+    VortexWeb3NetworkError,
+    VortexWeb3Locked,
+    VortexMetamaskLoader
+} from 'vort_x-components';
 import Web3 from 'web3'; // 1.0.0+ is preferable :)
 import SimpleStorageContractInstance from 'Embark/contracts/SimpleStorage';
 import * as Chains from '../chains.json';
@@ -35,7 +43,7 @@ import * as Chains from '../chains.json';
 
 <VortexGate contracts={{
                 type: 'embark',
-                contracts: {
+                embark_contracts: {
                     SimpleStorage: SimpleStorageContractInstance
                 },
                 chains: Chains,
@@ -60,13 +68,25 @@ import * as Chains from '../chains.json';
         // Renders this if the contracts are not on the current network
     </VortexWeb3NetworkError>
 
+    <VortexWeb3Locked>
+        // Renders this if the wallet provider (Metamask, Mist) is locked
+    </VortexWeb3Locked>
+
 </VortexGate>
 ```
 
 ### ... and for [Truffle](https://embark.status.im) Users.
 
 ```js
-import {VortexGate, VortexWeb3Loaded, VortexWeb3Loading, VortexWeb3LoadError, VortexWeb3NetworkError, VortexMetamaskLoader} from 'vort_x-components';
+import {
+    VortexGate,
+    VortexWeb3Loaded,
+    VortexWeb3Loading,
+    VortexWeb3LoadError,
+    VortexWeb3NetworkError,
+    VortexWeb3Locked,
+    VortexMetamaskLoader
+} from 'vort_x-components';
 import Web3 from 'web3'; // 1.0.0+ is preferable :)
 import SimpleStorage from '../build/contracts/SimpleStorage.json'
 
@@ -76,7 +96,7 @@ import SimpleStorage from '../build/contracts/SimpleStorage.json'
 
 <VortexGate contracts={{
                 type: 'truffle',
-                contracts: [
+                truffle_contracts: [
                     SimpleStorage
                 ],
                 preloaded_contracts: [
@@ -101,6 +121,10 @@ import SimpleStorage from '../build/contracts/SimpleStorage.json'
     <VortexWeb3NetworkError>
         // Renders this if the contracts are not on the current network
     </VortexWeb3NetworkError>
+
+    <VortexWeb3Locked>
+        // Renders this if the wallet provider (Metamask, Mist) is locked
+    </VortexWeb3Locked>
 
 </VortexGate>
 ```
