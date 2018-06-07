@@ -58,4 +58,4 @@ export class VortexGate<T extends State = State> extends React.Component<VortexG
 
 }
 
-export {VortexWeb3Loaded, VortexWeb3Loading, VortexWeb3LoadError, VortexWeb3NetworkError} from './organizers';
+export {VortexWeb3Loaded, VortexWeb3Loading, VortexWeb3LoadError, VortexWeb3NetworkError, VortexWeb3Locked} from './organizers';
