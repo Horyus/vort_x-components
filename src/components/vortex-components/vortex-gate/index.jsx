@@ -33,4 +33,4 @@ export class VortexGate extends React.Component {
 VortexGate.childContextTypes = {
     vortex: PropTypes.object
 };
-export { VortexWeb3Loaded, VortexWeb3Loading, VortexWeb3LoadError, VortexWeb3NetworkError } from './organizers';
+export { VortexWeb3Loaded, VortexWeb3Loading, VortexWeb3LoadError, VortexWeb3NetworkError, VortexWeb3Locked } from './organizers';
