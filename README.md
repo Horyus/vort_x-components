@@ -23,7 +23,7 @@ npm install --save vort_x vort_x-components
 
 ### For [Embark](https://embark.status.im) Users ...
 
-```js
+```jsx
 import {
     VortexGate,
     VortexWeb3Loaded,
@@ -77,7 +77,7 @@ import * as Chains from '../chains.json';
 
 ### ... and for [Truffle](https://embark.status.im) Users.
 
-```js
+```jsx
 import {
     VortexGate,
     VortexWeb3Loaded,
