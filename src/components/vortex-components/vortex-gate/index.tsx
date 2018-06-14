@@ -24,18 +24,23 @@ export class VortexGate<T extends State = State> extends React.Component<VortexG
     constructor(props: VortexGateProps<T>) {
         super(props);
 
-        this.vortex = Vortex.factory<T>(this.props.contracts, this.props.loader, {
-            reducer: this.props.reducers_map,
-            custom_state: this.props.custom_state,
-            account_refresh_rate: 10000,
-            custom_sagas: this.props.custom_sagas});
-        if (this.props.network_contracts) {
-            this.props.network_contracts.forEach((contract: any): void => {
-                this.vortex.networksOf(contract);
+        if (!Vortex.get() || !this.props.contracts  || !this.props.loader) {
+            this.vortex = Vortex.factory<T>(this.props.contracts, this.props.loader, {
+                reducer: this.props.reducers_map,
+                custom_state: this.props.custom_state,
+                account_refresh_rate: 10000,
+                custom_sagas: this.props.custom_sagas
             });
+            if (this.props.network_contracts) {
+                this.props.network_contracts.forEach((contract: any): void => {
+                    this.vortex.networksOf(contract);
+                });
+            }
+            this.vortex.run();
+            this.vortex.loadWeb3();
+        } else {
+            this.vortex = Vortex.get<T>();
         }
-        this.vortex.run();
-        this.vortex.loadWeb3();
     }
 
     static childContextTypes: React.ValidationMap<VortexGateChildContext> = {
