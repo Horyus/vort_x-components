@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Vortex, State} from 'vort_x';
+import {Vortex, State, IPFSConfig} from 'vort_x';
 import PropTypes from 'prop-types';
 import {Gatelock} from "./gatelock";
 import {DeepPartial, ReducersMapObject} from "redux";
@@ -9,7 +9,9 @@ export interface VortexGateProps<T extends State> {
     contracts: any,
     reducers_map?: ReducersMapObject<T>,
     custom_state?: DeepPartial<T>,
-    custom_sagas?: any[]
+    custom_sagas?: any[],
+    ipfs_config?: IPFSConfig,
+    account_refresh_rate?: number
 }
 
 export interface VortexGateChildContext {
@@ -27,8 +29,9 @@ export class VortexGate<T extends State = State> extends React.Component<VortexG
             this.vortex = Vortex.factory<T>(this.props.contracts, this.props.loader, {
                 reducer: this.props.reducers_map,
                 custom_state: this.props.custom_state,
-                account_refresh_rate: 10000,
-                custom_sagas: this.props.custom_sagas
+                account_refresh_rate: this.props.account_refresh_rate,
+                custom_sagas: this.props.custom_sagas,
+                ipfs_config: this.props.ipfs_config,
             });
             this.vortex.run();
             this.vortex.loadWeb3();
