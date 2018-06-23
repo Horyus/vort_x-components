@@ -6,7 +6,7 @@ export class VortexMethodCallList extends React.Component {
         this.render_array = [];
         this.props.arguments.forEach((callArgs, index) => {
             const customMapStateToProps = (state, ownProps) => {
-                return Object.assign({}, ownProps, { result: state.contracts[this.props.contractName][this.props.contractAddress].instance.vortex[this.props.methodName].vortexData(...callArgs) });
+                return Object.assign({}, ownProps, { result: state.contracts[this.props.contractName][this.props.contractAddress].instance.vortexMethods[this.props.methodName].data(...callArgs) });
             };
             const DynamicElementNode = connect(this.props.element, customMapStateToProps);
             this.render_array.unshift(<DynamicElementNode {...this.props.element_props} key={index}/>);

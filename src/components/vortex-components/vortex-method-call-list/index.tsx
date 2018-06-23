@@ -27,7 +27,7 @@ export class VortexMethodCallList extends React.Component<VortexMethodCallListPr
             const customMapStateToProps = (state: State, ownProps: any): any  => {
                 return {
                     ...ownProps,
-                    result: state.contracts[this.props.contractName][this.props.contractAddress].instance.vortex[this.props.methodName].vortexData(...callArgs)
+                    result: state.contracts[this.props.contractName][this.props.contractAddress].instance.vortexMethods[this.props.methodName].data(...callArgs)
                 }
             };
             const DynamicElementNode: React.ComponentClass = connect(this.props.element, customMapStateToProps);
