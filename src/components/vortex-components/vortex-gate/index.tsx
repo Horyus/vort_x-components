@@ -7,7 +7,6 @@ import {DeepPartial, ReducersMapObject} from "redux";
 export interface VortexGateProps<T extends State> {
     loader: Promise<any>,
     contracts: any,
-    network_contracts?: any[],
     reducers_map?: ReducersMapObject<T>,
     custom_state?: DeepPartial<T>,
     custom_sagas?: any[]
@@ -31,11 +30,6 @@ export class VortexGate<T extends State = State> extends React.Component<VortexG
                 account_refresh_rate: 10000,
                 custom_sagas: this.props.custom_sagas
             });
-            if (this.props.network_contracts) {
-                this.props.network_contracts.forEach((contract: any): void => {
-                    this.vortex.networksOf(contract);
-                });
-            }
             this.vortex.run();
             this.vortex.loadWeb3();
         } else {
