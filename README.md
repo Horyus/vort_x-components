@@ -41,16 +41,25 @@ import * as Chains from '../chains.json';
 ...
 
 
-<VortexGate contracts={{
-                type: 'embark',
-                embark_contracts: {
-                    SimpleStorage: SimpleStorageContractInstance
-                },
-                chains: Chains,
-                preloaded_contracts: [
-                    "SimpleStorage"
-                ]
-            }} loader={VortexMetamaskLoader(Web3)}>
+<VortexGate
+    contracts={{
+        type: 'embark',
+        embark_contracts: {
+            SimpleStorage: SimpleStorageContract
+        },
+        chains: Chains,
+        preloaded_contracts: [
+            "SimpleStorage"
+        ]
+    }}
+    loader={VortexMetamaskLoader(Web3)}
+    ipfs_config={{
+        host: 'ipfs.infura.io',
+        port: '5001',
+        options: {
+            protocol: 'https'
+        }
+    }}>
 
     <VortexWeb3Loaded>
         // Renders this when everything went well.
@@ -94,17 +103,21 @@ import SimpleStorage from '../build/contracts/SimpleStorage.json'
 ...
 
 
-<VortexGate contracts={{
-                type: 'truffle',
-                truffle_contracts: [
-                    SimpleStorage
-                ],
-                preloaded_contracts: [
-                    "SimpleStorage"
-                ]
-            }} network_contracts={SimpleStorage} loader={VortexMetamaskLoader(Web3)}>
-            // network_contracts defines the reference networks. If we are on a network where we can't find the
-            // contracts you gave as arguments, it will be treated as a NetworkError.
+<VortexGate
+    contracts={{
+        type: 'truffle',
+        truffle_contracts: [SimpleStorage],
+        preloaded_contracts: ["SimpleStorage"],
+        network_contracts: [SimpleStorage]
+    }}
+    loader={VortexMetamaskLoader(Web3)}
+    ipfs_config={{
+        host: 'ipfs.infura.io',
+        port: '5001',
+        options: {
+            protocol: 'https'
+        }
+    }}>
 
     <VortexWeb3Loaded>
         // Renders this when everything went well.
