@@ -69,7 +69,7 @@ import * as Chains from '../chains.json';
         ]
     }}
 
-    // Provide a custom Web3 loaded
+    // Provide a custom Web3 loader
     loader={VortexMetamaskLoader(Web3)}
 
     // Configure your IPFS Endpoint
@@ -142,7 +142,7 @@ import SimpleStorage from '../build/contracts/SimpleStorage.json'
         network_contracts: [SimpleStorage]
     }}
 
-    // Provide a custom Web3 loaded
+    // Provide a custom Web3 loader
     loader={VortexMetamaskLoader(Web3)}
 
     // Configure your IPFS Endpoint
