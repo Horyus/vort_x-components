@@ -11,7 +11,21 @@
 
 ## Introduction
 
-Vortex Components are a suite of React Components using features from Vortex.
+Vortex Components are a suite of React Components using features from [Vortex](https://github.com/Horyus/vortex).
+
+----
+
+### [Documentation](https://vort-x.readthedocs.io/en/master/tutorial#vortex-components)
+
+### [Vortex](https://github.com/Horyus/vortex)
+
+### [Embark Demonstration](https://github.com/Horyus/vortex-demo-embark)
+
+### [Truffle Demonstration](https://github.com/Horyus/vortex-demo)
+
+### [Contribution](./CONTRIBUTING.md)
+
+----
 
 ## Installation
 
@@ -33,7 +47,7 @@ import {
     VortexWeb3Locked,
     VortexMetamaskLoader
 } from 'vort_x-components';
-import Web3 from 'web3'; // 1.0.0+ is preferable :)
+import Web3 from 'web3'; // 1.0.0-beta.34+ is preferable :)
 import SimpleStorageContractInstance from 'Embark/contracts/SimpleStorage';
 import * as Chains from '../chains.json';
 
@@ -42,6 +56,8 @@ import * as Chains from '../chains.json';
 
 
 <VortexGate
+
+    // Configure your contracts
     contracts={{
         type: 'embark',
         embark_contracts: {
@@ -52,13 +68,26 @@ import * as Chains from '../chains.json';
             "SimpleStorage"
         ]
     }}
+
+    // Provide a custom Web3 loaded
     loader={VortexMetamaskLoader(Web3)}
+
+    // Configure your IPFS Endpoint
     ipfs_config={{
         host: 'ipfs.infura.io',
         port: '5001',
         options: {
             protocol: 'https'
         }
+    }}
+
+
+    // Configure your backlink endpoint
+    backlink_config={{
+         url: {
+             "mainnet": "wss://mainnet.infura.io/ws",
+             "default": "ws://localhost:8545/ws"
+         }
     }}>
 
     <VortexWeb3Loaded>
@@ -96,7 +125,7 @@ import {
     VortexWeb3Locked,
     VortexMetamaskLoader
 } from 'vort_x-components';
-import Web3 from 'web3'; // 1.0.0+ is preferable :)
+import Web3 from 'web3'; // 1.0.0-beta.34+ is preferable :)
 import SimpleStorage from '../build/contracts/SimpleStorage.json'
 
 
@@ -104,19 +133,34 @@ import SimpleStorage from '../build/contracts/SimpleStorage.json'
 
 
 <VortexGate
+
+    // Configure your contracts
     contracts={{
         type: 'truffle',
         truffle_contracts: [SimpleStorage],
         preloaded_contracts: ["SimpleStorage"],
         network_contracts: [SimpleStorage]
     }}
+
+    // Provide a custom Web3 loaded
     loader={VortexMetamaskLoader(Web3)}
+
+    // Configure your IPFS Endpoint
     ipfs_config={{
         host: 'ipfs.infura.io',
         port: '5001',
         options: {
             protocol: 'https'
         }
+    }}
+
+
+    // Configure your backlink endpoint
+    backlink_config={{
+         url: {
+             "mainnet": "wss://mainnet.infura.io/ws",
+             "default": "ws://localhost:8545/ws"
+         }
     }}>
 
     <VortexWeb3Loaded>
@@ -141,18 +185,3 @@ import SimpleStorage from '../build/contracts/SimpleStorage.json'
 
 </VortexGate>
 ```
-
-----
-
-### [Documentation](https://vort-x.readthedocs.io/en/master/tutorial#vortex-components)
-
-### [Vortex](https://github.com/Horyus/vortex)
-
-### [Embark Demonstration](https://github.com/Horyus/vortex-demo-embark)
-
-### [Truffle Demonstration](https://github.com/Horyus/vortex-demo)
-
-### [Contribution](./CONTRIBUTING.md)
-
-
-
