@@ -3,6 +3,7 @@ import {Vortex, State, IPFSConfig} from 'vort_x';
 import PropTypes from 'prop-types';
 import {Gatelock} from "./gatelock";
 import {DeepPartial, ReducersMapObject} from "redux";
+import {BacklinkConfig} from 'vort_x';
 
 export interface VortexGateProps<T extends State> {
     loader: Promise<any>,
@@ -11,6 +12,7 @@ export interface VortexGateProps<T extends State> {
     custom_state?: DeepPartial<T>,
     custom_sagas?: any[],
     ipfs_config?: IPFSConfig,
+    backlink_config?: BacklinkConfig,
     account_refresh_rate?: number
 }
 
@@ -32,6 +34,7 @@ export class VortexGate<T extends State = State> extends React.Component<VortexG
                 account_refresh_rate: this.props.account_refresh_rate,
                 custom_sagas: this.props.custom_sagas,
                 ipfs_config: this.props.ipfs_config,
+                backlink_config: this.props.backlink_config
             });
             this.vortex.run();
             this.vortex.loadWeb3();

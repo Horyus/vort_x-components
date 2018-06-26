@@ -12,6 +12,7 @@ export class VortexGate extends React.Component {
                 account_refresh_rate: this.props.account_refresh_rate,
                 custom_sagas: this.props.custom_sagas,
                 ipfs_config: this.props.ipfs_config,
+                backlink_config: this.props.backlink_config
             });
             this.vortex.run();
             this.vortex.loadWeb3();
