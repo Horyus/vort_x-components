@@ -37,7 +37,12 @@ class GatelockContainer extends React.Component {
                 case 'LOADING':
                     return this.paths.VortexWeb3Loading;
                 case 'LOADED':
-                    return this.paths.VortexWeb3Loaded;
+                    switch (this.props.backlink.status) {
+                        case 'LOADING':
+                            return this.paths.VortexWeb3Loading;
+                        default:
+                            return this.paths.VortexWeb3Loaded;
+                    }
                 case 'LOAD_ERROR':
                     return this.paths.VortexWeb3LoadError;
                 case 'NETWORK_ERROR':
@@ -53,7 +58,8 @@ class GatelockContainer extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
-        web3: state.web3
+        web3: state.web3,
+        backlink: state.backlink
     };
 };
 export const Gatelock = connect(GatelockContainer, mapStateToProps);

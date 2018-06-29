@@ -4,6 +4,7 @@ import {connect} from '../../../utils/connect';
 interface GatelockContainerProps {
     store?: any,
     web3: any,
+    backlink: any
 }
 
 interface GatelockContainerPaths {
@@ -60,7 +61,12 @@ class GatelockContainer extends React.Component<GatelockContainerProps> {
                 case 'LOADING':
                     return this.paths.VortexWeb3Loading;
                 case 'LOADED':
-                    return this.paths.VortexWeb3Loaded;
+                    switch (this.props.backlink.status) {
+                        case 'LOADING':
+                            return this.paths.VortexWeb3Loading;
+                        default:
+                            return this.paths.VortexWeb3Loaded;
+                    }
                 case 'LOAD_ERROR':
                     return this.paths.VortexWeb3LoadError;
                 case 'NETWORK_ERROR':
@@ -78,7 +84,8 @@ class GatelockContainer extends React.Component<GatelockContainerProps> {
 
 const mapStateToProps = (state: any): GatelockContainerProps => {
     return {
-        web3: state.web3
+        web3: state.web3,
+        backlink: state.backlink
     }
 };
 

@@ -16,10 +16,6 @@ export interface VortexGateProps<T extends State> {
     account_refresh_rate?: number
 }
 
-export interface VortexGateChildContext {
-    vortex: Vortex<any>
-}
-
 export class VortexGate<T extends State = State> extends React.Component<VortexGateProps<T>> {
 
     vortex: Vortex<T>;
@@ -41,16 +37,6 @@ export class VortexGate<T extends State = State> extends React.Component<VortexG
         } else {
             this.vortex = Vortex.get<T>();
         }
-    }
-
-    static childContextTypes: React.ValidationMap<VortexGateChildContext> = {
-        vortex: PropTypes.object
-    };
-
-    getChildContext(): VortexGateChildContext {
-        return {
-            vortex: this.vortex
-        };
     }
 
     render(): React.ReactNode {
