@@ -23,3 +23,9 @@ yarn-error.log*
 .idea
 
 *.jsx
+
+/.assets
+/CONTRIBUTING.md
+/README.md
+/package-lock.json
+/tslint.json

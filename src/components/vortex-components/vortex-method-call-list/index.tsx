@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {State} from 'vort_x';
+import {State, callContract, getContract} from 'vort_x';
 import {connect} from "../../../utils/connect";
 
 export interface VortexMethodCallListProps {
@@ -27,7 +27,7 @@ export class VortexMethodCallList extends React.Component<VortexMethodCallListPr
             const customMapStateToProps = (state: State, ownProps: any): any  => {
                 return {
                     ...ownProps,
-                    result: state.contracts[this.props.contractName][this.props.contractAddress].instance.vortexMethods[this.props.methodName].data(...callArgs)
+                    result: callContract(getContract(state, this.props.contractName, this.props.contractAddress), this.props.methodName, ...callArgs)
                 }
             };
             const DynamicElementNode: React.ComponentClass = connect(this.props.element, customMapStateToProps);

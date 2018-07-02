@@ -15,7 +15,7 @@ Vortex Components are a suite of React Components using features from [Vortex](h
 
 ----
 
-### [Documentation](https://vort-x.readthedocs.io/en/master/tutorial#vortex-components)
+### [Documentation](https://vort-x.readthedocs.io/en/develop/react/)
 
 ### [Vortex](https://github.com/Horyus/vortex)
 

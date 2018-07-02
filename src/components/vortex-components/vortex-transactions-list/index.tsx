@@ -1,6 +1,6 @@
 import * as React from "react";
 import {State, FeedState} from 'vort_x';
-import {FeedFilterTransactions, FeedNewTransactionState} from "vort_x";
+import {FeedNewTransactionState, getFeed, FeedType} from "vort_x";
 import {connect} from "../../../utils/connect";
 
 export interface VortexTransactionsListProps {
@@ -58,7 +58,7 @@ class _VortexTransactionsList extends React.Component<VortexTransactionsListProp
 const mapStateToProps = (state: State, ownProps: VortexTransactionsListProps): VortexTransactionsListProps => {
     return {
         ...ownProps,
-        feed: FeedFilterTransactions(state),
+        feed: getFeed(state, FeedType.Transactions),
         element_props: ownProps.element_props || {},
         container_props: ownProps.container_props || {}
     }
