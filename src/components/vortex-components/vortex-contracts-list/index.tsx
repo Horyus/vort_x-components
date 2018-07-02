@@ -1,5 +1,5 @@
 import * as React from "react";
-import {FeedFilterContracts, FeedNewContractState, State, FeedState} from "vort_x";
+import {FeedNewContractState, State, FeedState, FeedType, getFeed} from "vort_x";
 import {connect} from "../../../utils/connect";
 
 export interface VortexContractsListProps {
@@ -68,7 +68,7 @@ class _VortexContractsList extends React.Component<VortexContractsListProps> {
 const mapStateToProps = (state: State, ownProps: VortexContractsListProps): VortexContractsListProps => {
     return {
         ...ownProps,
-        feed: FeedFilterContracts(state),
+        feed: getFeed(state, FeedType.Contracts),
         element_props: ownProps.element_props || {},
         container_props: ownProps.container_props || {}
     }

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {State, FeedFilter, FeedState} from 'vort_x';
+import {State, FeedFilter, FeedState, getFeed} from 'vort_x';
 import {connect} from '../../../utils/connect';
 
 export interface VortexFeedListProps {
@@ -54,14 +54,10 @@ class _VortexFeedList extends React.Component<VortexFeedListProps> {
 }
 
 const mapStateToProps = (state: State, ownProps: VortexFeedListProps): VortexFeedListProps => {
-    let selector;
-    if (!ownProps.selector)
-        selector = FeedFilter(ownProps.filter);
     return {
         ...ownProps,
         filter: ownProps.filter,
-        feed: ownProps.selector ? ownProps.selector(state) : selector(state),
-        selector: ownProps.selector || selector,
+        feed: getFeed(state, ownProps.filter),
         element_props: ownProps.element_props || {},
         container_props: ownProps.container_props || {}
     }
