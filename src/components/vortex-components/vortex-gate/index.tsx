@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Vortex, State, IPFSConfig} from 'vort_x';
-import PropTypes from 'prop-types';
 import {Gatelock} from "./gatelock";
 import {DeepPartial, ReducersMapObject} from "redux";
 import {BacklinkConfig} from 'vort_x';

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {State, FeedFilter, FeedState, getFeed} from 'vort_x';
+import {State, FeedState, getFeed} from 'vort_x';
 import {connect} from '../../../utils/connect';
 
 export interface VortexFeedListProps {
