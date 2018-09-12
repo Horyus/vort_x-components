@@ -49,7 +49,7 @@ import {
 } from 'vort_x-components';
 import Web3 from 'web3'; // 1.0.0-beta.34+ is preferable :)
 import SimpleStorageContractInstance from 'Embark/contracts/SimpleStorage';
-import * as Chains from '../chains.json';
+import Chains from '../chains.json';
 
 
 ...
@@ -61,7 +61,7 @@ import * as Chains from '../chains.json';
     contracts={{
         type: 'embark',
         embark_contracts: {
-            SimpleStorage: SimpleStorageContract
+            SimpleStorage: SimpleStorageContractInstance
         },
         chains: Chains,
         preloaded_contracts: [
